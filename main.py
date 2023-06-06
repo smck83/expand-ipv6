@@ -27,11 +27,13 @@ async def siteRank(ip6):
         result = {'ipv6' : addr,
                 'exploded' : addr.exploded
         }
-        output = output[::-1] # reverse the string
-        result['reversed'] = output
-        
         output = '.'.join(output[i:i+1] for i in range(0, len(output), 1))
         result['dotNotation'] = output
+        reversedOutput = output[::-1] # reverse the string
+        result['reversedDotNotation'] = reversedOutput
+        
+        #reversedOutput = '.'.join(reversedOutput[i:i+1] for i in range(0, len(reversedOutput), 1))
+        #result['reversedDotNotation'] = reversedOutput
         result["error"] = [False]
     return result
 
