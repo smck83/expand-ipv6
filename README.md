@@ -18,3 +18,5 @@ and receive the following response
   ]
 }
 ````
+
+This is particularly useful when dealing with IPv6 addresses with SPF records, where they need to be parsed in dot notation, and often reversed.
