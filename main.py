@@ -22,18 +22,22 @@ async def siteRank(ip6):
         print(e)
         result["error"] = [True,str(e)]
     else:
-        print(addr,"|",(addr.exploded))
         output = addr.exploded.replace(':','') # remove :
-        result = {'ipv6' : addr,
-                'exploded' : addr.exploded
-        }
-        output = '.'.join(output[i:i+1] for i in range(0, len(output), 1))
+        if '.' not in output: #assume ipv6
+            print(addr,"|",(addr.exploded))
+            
+            result = {'ipv6' : addr,
+                    'exploded' : addr.exploded
+            }
+
+            output = '.'.join(output[i:i+1] for i in range(0, len(output), 1))
+        else:
+            print(addr)
+            result = {'ipv4' : addr,
+            }      
         result['dotNotation'] = output
-        reversedOutput = output[::-1] # reverse the string
-        result['reversedDotNotation'] = reversedOutput
-        
-        #reversedOutput = '.'.join(reversedOutput[i:i+1] for i in range(0, len(reversedOutput), 1))
-        #result['reversedDotNotation'] = reversedOutput
+        result['reversedDotNotation'] = output[::-1] # reverse the string
+
         result["error"] = [False]
     return result
 
