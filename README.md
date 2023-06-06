@@ -6,7 +6,8 @@ e.g. Send a GET request to
 `http://localhost:8000/ipAddress/?ip6=2607:f8b0:4023:1004:0000:0000:0000:001b'
 
 and receive the following response
-''''
+
+````
 {
   "ipv6": "2607:f8b0:4023:1004::1b",
   "exploded": "2607:f8b0:4023:1004:0000:0000:0000:001b",
@@ -16,5 +17,4 @@ and receive the following response
     false
   ]
 }
-
-''''
+````
