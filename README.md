@@ -3,7 +3,7 @@ FastAPI app that takes a IPv6 address in compressed notation and responds with t
 
 
 e.g. Send a GET request to
-`http://localhost:8000/ipAddress/?ip6=2607:f8b0:4023:1004:0000:0000:0000:001b'
+`http://localhost:8000/ipAddress/?ip6=2607:f8b0:4023:1004:0000:0000:0000:001b`
 
 and receive the following response
 
