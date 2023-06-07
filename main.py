@@ -14,10 +14,10 @@ def validate_ip_address(ip_string):
 
 
 @app.get("/ipAddress/")
-async def siteRank(ip6):
+async def siteRank(ip):
     result = {}
     try:
-        addr = ipaddress.ip_address(ip6)
+        addr = ipaddress.ip_address(ip)
     except Exception as e:
         print(e)
         result["error"] = [True,str(e)]
@@ -26,15 +26,19 @@ async def siteRank(ip6):
         if '.' not in output: #assume ipv6
             print(addr,"|",(addr.exploded))
             
-            result = {'ipv6' : addr,
-                    'exploded' : addr.exploded
+            result = { 
+                       'sourceIP' : addr,
+                       'exploded' : addr.exploded,
+                       'ipv' : 6
             }
 
             output = '.'.join(output[i:i+1] for i in range(0, len(output), 1))
         else:
             print(addr)
-            result = {'ipv4' : addr,
-            }      
+            result = { 
+                       'sourceIP' : addr,
+                       'ipv' : 4
+            }     
         result['dotNotation'] = output
         result['reversedDotNotation'] = output[::-1] # reverse the string
 
