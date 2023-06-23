@@ -40,7 +40,7 @@ async def siteRank(ip):
                        'ipv' : 4
             }     
         result['dotNotation'] = output
-        result['reversedDotNotation'] = output[::-1] # reverse the string
+        result['reversedDotNotation'] = '.'.join(output.split('.')[::-1])
 
         result["error"] = [False]
     return result
